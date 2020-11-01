@@ -21,3 +21,6 @@ const navSlide = () => {
 navSlide();
 
 
+new fullpage("#fullpage",{
+    autoScrolling:true,
+});
