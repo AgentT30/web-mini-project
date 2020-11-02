@@ -20,6 +20,13 @@ const navSlide = () => {
 
 navSlide();
 
+function openLoginForm(){
+    document.body.classList.add("showLoginForm");
+}
+
+function closeLoginForm(){
+    document.body.classList.remove("showLoginForm");
+}
 
 new fullpage("#fullpage",{
     autoScrolling:true,

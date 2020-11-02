@@ -7,9 +7,6 @@
 
 body {
     background-color: #d7e5f7;
-}
-
-.s1 {
     min-height: 100vh;
     background: linear-gradient(rgba(126, 187, 202, 0.5), rgba(99, 208, 216, 0.5)),
         url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
@@ -81,6 +78,13 @@ nav {
     transition: all 0.5s ease-in-out;
 }
 
+button {
+    cursor: pointer;
+    padding: 0.75rem;
+    font-size: 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+}
 .login-btn:hover {
     background-color: #8be3f3;
 }
@@ -158,112 +162,4 @@ nav {
 }
 .toggle .line3 {
     transform: rotate(45deg) translate(-11px, -5.5px);
-}
-
-.search-heading {
-    position: relative;
-    margin-top: 15%;
-}
-
-.search-bar {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    margin-top: -50px;
-    margin-left: -100px;
-    display: inline-block;
-    border: 1px solid;
-    border-radius: 20px;
-    border-color: #5fd9ee;
-}
-::placeholder {
-    color: rgb(4, 33, 49);
-    opacity: 1;
-    padding: 10px;
-    text-align: center;
-    font-family: "Itim", cursive;
-}
-
-#search-box {
-    padding: 5px;
-    width: 560px;
-    border: none;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0);
-    font-size: 1.5rem;
-}
-
-@media screen and (max-width: 1100px) {
-    #search-box {
-        padding: 5px;
-        width: 260px;
-        border: none;
-        box-sizing: border-box;
-        background: rgba(0, 0, 0, 0);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #search-box {
-        padding: 5px;
-        width: 260px;
-        border: none;
-        box-sizing: border-box;
-        background: rgba(0, 0, 0, 0);
-    }
-}
-
-.search-btn,
-button,
-.btn-link {
-    cursor: pointer;
-    padding: 0.75rem;
-    font-size: 20px;
-    border: none;
-    background: rgba(0, 0, 0, 0);
-}
-
-#search-box:focus,
-.search-btn:focus,
-.btn-link:active {
-    outline: none;
-}
-
-.container-fluid {
-    padding: 20px;
-}
-
-.featured-articles {
-    text-align: left;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    transition: all 0.5s ease-in-out;
-}
-
-.featured-articles:hover {
-    font-size: 110%;
-}
-
-.card {
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-}
-
-.main-articles {
-    border: 1px dotted black;
-    padding: 10px;
-    margin: 15px;
-}
-#more {
-    display: none;
-}
-
-#myBtn {
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.btn-link {
-    color: black;
 }
