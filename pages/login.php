@@ -47,7 +47,7 @@
                           </button>
                         </div>
 
-                        <form action="../backend/login.php" method="post">
+                        <form action="" method="post">
                           <div class="modal-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address:</label>
@@ -63,7 +63,30 @@
                             <button type="submit" class="btn btn-primary" name="login_submit">Login</button>
                           </div>
                         </form>
+                        <?php
+                          session_start();
 
+                          if(isset($_POST['login_submit'])){
+                              $u_name = $_POST['loginemail'];
+                              $p_word = $_POST['loginpass'];
+
+                              // echo($username);        
+                              // echo($password);
+
+                              $connection = mysqli_connect("localhost","root","","miniproject");        
+
+                              $query = "select * from login where username= '".$u_name."' and password='".$p_word."'";
+                              $qryobj = mysqli_query($connection, $query);
+                              
+                              while($row = mysqli_fetch_assoc($qryobj)){
+                                  // echo($row['username']);
+                                  // echo($row['password']);
+
+                                  echo '<script>alert("Login Successful")</script>'; 
+                                  // echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
+                              }
+                          }
+                        ?>
                       </div>
                     </div>
                   </div>
@@ -81,7 +104,7 @@
                           </button>
                         </div>
                       
-                        <form action="../backend/signup.php" method="post">
+                        <form action="" method="post">
                           <div class="modal-body">
                             <div class="form-group">
                                 <label for="name">Name:</label>
@@ -115,6 +138,34 @@
                             <button type="submit" class="btn btn-primary" name="signup_submit">Sign Up</button>
                           </div>
                       </form>
+                      <?php
+                        // session_start();
+
+                        if(isset($_POST['signup_submit'])){
+                            $name = $_POST['name'];
+                            $u_name = $_POST['loginemail'];
+                            $p_word = $_POST['loginpass'];
+                            $p_word_confirm = $_POST['loginpass_confirm'];
+                            $p_number = $_POST['phoneno'];
+
+                            // echo($u_name);        
+                            // echo($p_word);
+                            if((strcmp($p_word,$p_word_confirm)) == 0){
+                                $connection = mysqli_connect("localhost","root","","miniproject");        
+
+                                $query1 = "insert into user_details (name,email,phone,password) values ('$name','$u_name','$p_number','$p_word')";
+                                $query2 = "insert into login (username,password) values ('$name','$p_word')";
+
+                                $result = mysqli_query($connection, $query1);
+                                $result = mysqli_query($connection, $query2);
+                                echo '<script>alert("Signup Successful")</script>'; 
+                                // echo '<a href="../pages/login.html"><button class="btn btn-outline-success">Click to go back</button></a>';
+                            }
+                            else{
+                                echo '<script>alert("Passwords do not match!")</script>'; 
+                            }
+                        }
+                      ?>
                       </div>
                     </div>
                   </div>
