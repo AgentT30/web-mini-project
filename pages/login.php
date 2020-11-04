@@ -15,13 +15,13 @@
 <body style="font-weight: 900;">    
     <div id="header">        
         <nav class="top-nav">
-            <h1 class="main-heading">GeeksforGeeks Clone</h1>
+            <a href="../index.html"><h1 class="main-heading">GeeksforGeeks Clone</h1></a>
             <div class="nav-items">
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
-                    <li><a href="login.html"></a><button class="login-btn">Login/Sign Up</button></li> 
+                    <li><a href="login.php"></a><button class="login-btn">Login/Sign Up</button></li> 
                 </ul>
             </div>
             <div class="burger">
@@ -158,13 +158,17 @@
 
                                 $result = mysqli_query($connection, $query1);
                                 $result = mysqli_query($connection, $query2);
-                                echo '<script>alert("Signup Successful")</script>'; 
+                                
+                                echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>'; 
                                 // echo '<a href="../pages/login.html"><button class="btn btn-outline-success">Click to go back</button></a>';
                             }
                             else{
                                 echo '<script>alert("Passwords do not match!")</script>'; 
                             }
                         }
+                        // else{
+                        //   echo '<script>alert("Error!")</script>';
+                        // }
                       ?>
                       </div>
                     </div>

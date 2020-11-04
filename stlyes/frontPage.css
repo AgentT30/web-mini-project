@@ -91,6 +91,12 @@ nav {
     }
 }
 
+@media screen and (max-width: 1320px) {
+    .featured-articles-last {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
@@ -266,4 +272,22 @@ button,
 
 .btn-link {
     color: black;
+}
+
+.row-about-us {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about-us-card {
+    border: 1px solid black;
+    margin-top: 200px;
+    border-radius: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.about-us-card:hover {
+    box-shadow: 5px 10px #888888;
+    transform: scale(1.1);
 }
