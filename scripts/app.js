@@ -29,7 +29,7 @@ function closeLoginForm(){
 }
 
 new fullpage("#fullpage",{
-    autoScrolling:true,
+    autoScrolling:true,	
 });
 
 

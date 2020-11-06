@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">  
     <link rel="icon" type="image/png" href="../images/favicon.png"/>  
-    <link rel="stylesheet" href="../stlyes/base.css">  
-    <link rel="stylesheet" href="../stlyes/login.css">  
+    <link rel="stylesheet" href="../stlyes/base.css">        
     <title>Login/SignUp</title>
 </head>
-<body style="font-weight: 900;">    
+<body style="font-weight: 900; background: linear-gradient(rgba(126, 187, 202, 0.5), rgba(99, 208, 216, 0.5)),
+        url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+            center/cover fixed no-repeat; min-height: 100vh;">    
     <div id="header">        
         <nav class="top-nav">
-            <a href="../index.html"><h1 class="main-heading">GeeksforGeeks Clone</h1></a>
+            <a href="../index.html"><h1 class="main-heading">NerdsforNerds</h1></a>
             <div class="nav-items">
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
@@ -33,7 +34,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 45vh;">
             <div class="col-lg-4 col-md-4 col-sm-4 col-3"></div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-3">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
