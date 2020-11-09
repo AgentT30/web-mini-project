@@ -18,11 +18,11 @@
         <nav class="top-nav">
             <a href="../index.html"><h1 class="main-heading">NerdsforNerds</h1></a>
             <div class="nav-items">
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="login.php"></a><button class="login-btn">Login/Sign Up</button></li> 
+                <ul class="nav-links" style="text-decoration: none; list-style-type: none">
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="#">About Us</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="#">Contact Us</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="login.php"></a><button class="login-btn">Login/Sign Up</button></li> 
                 </ul>
             </div>
             <div class="burger">
