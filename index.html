@@ -55,7 +55,7 @@
                     <h3 class="articles-heading-h3">Explore</h3> -->
                     <div class="row">                        
                         <div class="col-lg-3 col-md-3 col-sm-3 featured" >
-                            <a href="pages/computer.html"><p class="featured-articles">What is a computer?</p> </a>                                                 
+                            <!-- <a href="pages/computer.html"><p class="featured-articles">What is a computer?</p> </a>                                                 
                             <a href="pages/cpu.html"><p class="featured-articles">Central Processing Unit?</p> </a>                        
                             <a href="pages/inputdevices.html"><p class="featured-articles">Input Devices</p> </a>                        
                             <a href="pages/outputdevies.html"><p class="featured-articles">Output Devices</p> </a>                        
@@ -64,7 +64,45 @@
                             <a href="pages/programming.html"><p class="featured-articles">What is programming?</p> </a>                         
                             <a href="pages/cprogramming.html"><p class="featured-articles featured-articles-last">C Programming Language</p> </a>                        
                             <a href="pages/htmlexplain.html"><p class="featured-articles featured-articles-last">HTML (HyperText Markup Language)</p> </a>                        
-                            <a href="pages/javascript.html"><p class="featured-articles featured-articles-last">JavaScript</p> </a> 
+                            <a href="pages/javascript.html"><p class="featured-articles featured-articles-last">JavaScript</p> </a>  -->
+
+
+							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+                            <script> 
+								function shuffle(array) {
+									var currentIndex = array.length, temporaryValue, randomIndex;									
+									while (0 !== currentIndex) {										
+										randomIndex = Math.floor(Math.random() * currentIndex);
+										currentIndex -= 1;										
+										temporaryValue = array[currentIndex];
+										array[currentIndex] = array[randomIndex];
+										array[randomIndex] = temporaryValue;
+									}
+									return array;
+								}
+                              
+                                let articles = [
+                                  '<a href="pages/computer.html"><p class="featured-articles">What is a computer?</p> </a>',
+                                  '<a href="pages/cpu.html"><p class="featured-articles">Central Processing Unit?</p> </a>',
+                                  '<a href="pages/inputdevices.html"><p class="featured-articles">Input Devices</p> </a>',
+                                  '<a href="pages/outputdevies.html"><p class="featured-articles">Output Devices</p> </a>',
+								  '<a href="pages/hardware_software.html"><p class="featured-articles">Difference between Hardware and Software</p> </a>',
+								  '<a href="pages/algorithms.html"><p class="featured-articles">What are algorithms?</p> </a>',
+								  '<a href="pages/programming.html"><p class="featured-articles">What is programming?</p> </a>',
+								  '<a href="pages/cprogramming.html"><p class="featured-articles featured-articles-last">C Programming Language</p> </a>',
+								  '<a href="pages/htmlexplain.html"><p class="featured-articles featured-articles-last">HTML (HyperText Markup Language)</p> </a>',
+								  '<a href="pages/javascript.html"><p class="featured-articles featured-articles-last">JavaScript</p> </a>'                                  
+                                ];
+                                articles = shuffle(articles);
+                                for(var i of articles){
+                                  console.log(i);
+                                  document.write(i);
+                                }
+                            </script>
                               
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9">                            
