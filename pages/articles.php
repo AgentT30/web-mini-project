@@ -13,10 +13,10 @@
     <style>
         body{
             min-height: 100vh;
-            background: linear-gradient(rgba(175, 212, 221, 0.7), rgba(140, 241, 248, 0.7)),
-                url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
+            /* background: linear-gradient(rgba(175, 212, 221, 0.7), rgba(140, 241, 248, 0.7)), */
+                /* url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80") */
             center/cover fixed no-repeat;
-            position: relative;
+            position: relative;            
             font-size: 1.5rem;
         }     
         .program-example{
@@ -63,7 +63,7 @@
     <?php
         $connection = mysqli_connect("localhost","root","","miniproject");
 
-        $query = "select * from articles where title='variables'";
+        $query = "select * from articles where title = 'conditionals'";
         $result = mysqli_query($connection, $query);
         while($row = mysqli_fetch_assoc($result)){
             echo($row['definition']);
