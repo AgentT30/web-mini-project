@@ -18,7 +18,12 @@
             center/cover fixed no-repeat;
             position: relative;            
             font-size: 1.5rem;
-        }     
+        } 
+
+        .page-no-exist{
+            text-align: center;
+            margin-top: 25rem;
+        }    
         .program-example{
             padding: 20px;
             border-radius: 10px;
@@ -67,9 +72,11 @@
     </div>
     
     <?php
+        $search_term = $_POST['search'];
+        // echo($search_term);
         $connection = mysqli_connect("localhost","root","","miniproject");
 
-        $query = "select * from articles where title = 'selection sort'";
+        $query = "select * from articles where title = '$search_term'";
         $result = mysqli_query($connection, $query);
         while($row = mysqli_fetch_assoc($result)){
             echo($row['definition']);
@@ -79,8 +86,15 @@
 
     <script>
         var page_title = document.querySelector(".title-article");
-        console.log(page_title.innerHTML);
-        document.title = page_title.innerHTML;
+        if(page_title == null){
+            document.write('<h2 class="page-no-exist">Sorry! The page does not exist. ☹️</h2>');
+            document.title = "Page does not exist";
+        }
+        else{
+            console.log(page_title.innerHTML);
+            document.title = page_title.innerHTML;
+        }
+        
     </script>
 
     
