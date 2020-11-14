@@ -29,11 +29,17 @@
         }    
         @media screen and (max-width: 768px){
             body{
+                overflow-x: visible;
+            }
+        }
+
+        @media screen and (max-width: 768px){
+            body{
                 font-size: 1rem;
             }
             .container{
                 margin: 10px;
-                overflow-x: hidden;
+                /* overflow-x: hidden; */
             }            
         }
 
@@ -63,7 +69,7 @@
     <?php
         $connection = mysqli_connect("localhost","root","","miniproject");
 
-        $query = "select * from articles where title = 'conditionals'";
+        $query = "select * from articles where title = 'selection sort'";
         $result = mysqli_query($connection, $query);
         while($row = mysqli_fetch_assoc($result)){
             echo($row['definition']);
