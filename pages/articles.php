@@ -47,6 +47,10 @@
                 /* overflow-x: hidden; */
             }            
         }
+        img{
+            margin-left: auto;
+            margin-right: auto;
+        }
 
     </style>
     <title>Article - Title</title>

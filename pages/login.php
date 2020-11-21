@@ -20,8 +20,8 @@
             <div class="nav-items">
                 <ul class="nav-links" style="text-decoration: none; list-style-type: none">
                   <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
-                  <li style="text-decoration: none; list-style-type: none"><a href="#">About Us</a></li>
-                  <li style="text-decoration: none; list-style-type: none"><a href="#">Contact Us</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html#about-us">About Us</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html#contact-us">Contact Us</a></li>
                   <li style="text-decoration: none; list-style-type: none"><a href="login.php"></a><button class="login-btn">Login/Sign Up</button></li> 
                 </ul>
             </div>
@@ -65,7 +65,7 @@
                           </div>
                         </form>
                         <?php
-                          session_start();
+                          // session_start();
 
                           if(isset($_POST['login_submit'])){
                               $u_name = $_POST['loginemail'];
