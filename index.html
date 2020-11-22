@@ -70,42 +70,41 @@
                             <a href="pages/javascript.html"><p class="featured-articles featured-articles-last">JavaScript</p> </a>  -->
 
 
-							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
-							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
-							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
-							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
-							<!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
-                            <script> 
-								function shuffle(array) {
-									var currentIndex = array.length, temporaryValue, randomIndex;									
-									while (0 !== currentIndex) {										
-										randomIndex = Math.floor(Math.random() * currentIndex);
-										currentIndex -= 1;										
-										temporaryValue = array[currentIndex];
-										array[currentIndex] = array[randomIndex];
-										array[randomIndex] = temporaryValue;
-									}
-									return array;
-								}                              
-                                let articles = [
-                                  '<a href="pages/computer.html"><p class="featured-articles">What is a computer?</p> </a>',
-                                  '<a href="pages/cpu.html"><p class="featured-articles">Central Processing Unit?</p> </a>',
-                                  '<a href="pages/inputdevices.html"><p class="featured-articles">Input Devices</p> </a>',
-                                  '<a href="pages/outputdevies.html"><p class="featured-articles">Output Devices</p> </a>',
-                                  '<a href="pages/hardware_software.html"><p class="featured-articles">Difference between Hardware and Software</p> </a>',
-                                  '<a href="pages/algorithms.html"><p class="featured-articles">What are algorithms?</p> </a>',
-                                  '<a href="pages/programming.html"><p class="featured-articles">What is programming?</p> </a>',
-                                  '<a href="pages/cprogramming.html"><p class="featured-articles featured-articles-last">C Programming Language</p> </a>',
-                                  '<a href="pages/htmlexplain.html"><p class="featured-articles featured-articles-last">HTML (HyperText Markup Language)</p> </a>',
-                                  '<a href="pages/javascript.html"><p class="featured-articles featured-articles-last">JavaScript</p> </a>'                                  
-                                ];
-                                articles = shuffle(articles);
-                                for(var i of articles){
-                                  console.log(i);
-                                  document.write(i);
-                                }
-                            </script>
-                              
+                            <!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+                            <!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+                            <!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+                            <!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+                            <!-- THIS SCRIPT IS USED TO LOAD THE FEATUED ARTICLES IN RANDOM ORDER -->
+							<script> 
+							function shuffle(array) {
+								var currentIndex = array.length, temporaryValue, randomIndex;									
+								while (0 !== currentIndex) {										
+									randomIndex = Math.floor(Math.random() * currentIndex);
+									currentIndex -= 1;										
+									temporaryValue = array[currentIndex];
+									array[currentIndex] = array[randomIndex];
+									array[randomIndex] = temporaryValue;
+								}
+								return array;
+							}                              
+							let articles = [
+								'<a href="pages/computer.html"><p class="featured-articles">What is a computer?</p> </a>',
+								'<a href="pages/cpu.html"><p class="featured-articles">Central Processing Unit?</p> </a>',
+								'<a href="pages/inputdevices.html"><p class="featured-articles">Input Devices</p> </a>',
+								'<a href="pages/outputdevies.html"><p class="featured-articles">Output Devices</p> </a>',
+								'<a href="pages/hardware_software.html"><p class="featured-articles">Difference between Hardware and Software</p> </a>',
+								'<a href="pages/algorithms.html"><p class="featured-articles">What are algorithms?</p> </a>',
+								'<a href="pages/programming.html"><p class="featured-articles">What is programming?</p> </a>',
+								'<a href="pages/cprogramming.html"><p class="featured-articles featured-articles-last">C Programming Language</p> </a>',
+								'<a href="pages/htmlexplain.html"><p class="featured-articles featured-articles-last">HTML (HyperText Markup Language)</p> </a>',
+								'<a href="pages/javascript.html"><p class="featured-articles featured-articles-last">JavaScript</p> </a>'                                  
+							];
+							articles = shuffle(articles);
+							for(var i of articles){
+								console.log(i);
+								document.write(i);
+							}
+                            </script>                              
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9">							                   
                             <div id="accordion">
@@ -120,7 +119,7 @@
                                   </div>                              
                                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-										Open source software has the potential to be very secure. Unlike proprietary code that can only be accessed directly by its own developers, anyone can vet open source projects to spot flaws and bugs. In practice, though, being open source is no panacea. Now, code repository GitHub is rolling out new tools for its GitHub Advanced Security suite that will make it easier to root out vulnerabilities in the open source projects managed on its platform. Open source code present a few security challenges. In practice there aren't always enough people with the right expertise looking at it. And open source projects are generally ad hoc; they don't necessarily have a clear process in place for people to submit vulnerabilities, or the resources available for someone to patch them. Even if you surmount those hurdles, you may not know who's actually using your open source code and needs a patch.
+										Open source software has the potential to be very secure. Unlike proprietary code that can only be accessed directly by its own developers, anyone can vet open source projects to spot flaws and bugs. In practice, though, being open source is no panacea. Now, code repository GitHub is rolling out new tools for its GitHub Advanced Security suite that will make it easier to root out vulnerabilities in the open source projects managed on its platform. Open source code present a few security challenges. In practice there aren't always enough people with the right expertise looking at it. And open source projects are generally ad hoc; they don't necessarily have a clear process in place for people to submit vulnerabilities, or the resources available for someone to patch them. Even if you surmount those hurdles, you may not know who's actually using your open source code and needs a patch. <a href="https://www.wired.com/story/github-advanced-security-open-source/">[Read More]</a> 
                                     </div>
                                   </div>
                                 </div>
@@ -137,7 +136,7 @@
                                   </div>
                                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                     <div class="card-body">
-										Python is one of the world’s most popular programming languages. In fact, it’s more so than ever. Python climbed from third place to tie for second in the latest ranking of programming language popularity published by the analyst firm RedMonk. It’s the first time that a language other than JavaScript, which remains number one in the firm’s ratings, or Java, the other runner-up, has entered the top two since RedMonk started compiling its rankings in 2012.
+										Python is one of the world’s most popular programming languages. In fact, it’s more so than ever. Python climbed from third place to tie for second in the latest ranking of programming language popularity published by the analyst firm RedMonk. It’s the first time that a language other than JavaScript, which remains number one in the firm’s ratings, or Java, the other runner-up, has entered the top two since RedMonk started compiling its rankings in 2012. <a href="https://www.wired.com/story/python-language-more-popular-than-ever/">[Read More]</a>
                                     </div>
                                   </div>
                                 </div>
@@ -154,7 +153,7 @@
                                   </div>
                                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                     <div class="card-body">
-										Uber  is rolling out a new feature this week that will let users reserve rides up to 30 days in advance and pick their favorite driver for the trip as the ride-hailing company seeks out new ways to attract customers during the COVID-19 pandemic. The new option called Uber Reserve, which will begin to show up on the app in the next week, is designed for users who want to book a ride at least two hours in advance. Uber said it will keep its current “schedule a ride” option for those trips that fall under that two hours in advance timeline.
+										Uber  is rolling out a new feature this week that will let users reserve rides up to 30 days in advance and pick their favorite driver for the trip as the ride-hailing company seeks out new ways to attract customers during the COVID-19 pandemic. The new option called Uber Reserve, which will begin to show up on the app in the next week, is designed for users who want to book a ride at least two hours in advance. Uber said it will keep its current “schedule a ride” option for those trips that fall under that two hours in advance timeline. <a href="https://techcrunch.com/2020/11/10/uber-will-now-let-users-book-rides-30-days-in-advance-and-pick-a-favorite-driver/">[Read More]</a>
                                     </div>
                                   </div>
                                 </div>
@@ -171,7 +170,7 @@
                                   </div>
                                   <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                                     <div class="card-body">
-                                        Qualcomm Ventures, Qualcomm’s  investment arm, today announced four new strategic investments in 5G-related startups. These companies are private mobile network specialist Celona, mobile network automation platform Cellwize, the edge computing platform Azion and Pensando, another edge computing platform that combines its software stack with custom hardware.The overall goal here is obviously to help jumpstart 5G use cases in the enterprise and — by extension — for consumers by investing in a wide range of companies that can build the necessary infrastructure to enable these.
+                                        Qualcomm Ventures, Qualcomm’s  investment arm, today announced four new strategic investments in 5G-related startups. These companies are private mobile network specialist Celona, mobile network automation platform Cellwize, the edge computing platform Azion and Pensando, another edge computing platform that combines its software stack with custom hardware.The overall goal here is obviously to help jumpstart 5G use cases in the enterprise and — by extension — for consumers by investing in a wide range of companies that can build the necessary infrastructure to enable these. <a href="https://techcrunch.com/2020/11/10/qualcomm-ventures-invests-in-four-5g-startups/">[Read More]</a>
                                     </div>
                                   </div>
                                 </div>
@@ -188,7 +187,7 @@
                                   </div>
                                   <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                                     <div class="card-body">
-										Adobe just announced that it is acquiring marketing workflow management startup Workfront for $1.5 billion. Bloomberg first reported the sale earlier today. Workfront  was founded back in 2001, making it a bit long in the tooth for a private company that has raised $375 million, according to Crunchbase. It’s worth noting that $280 million of that was secondary money raised last year. The acquisition gives Adobe more online marketing tooling to fit into its Experience Cloud. This one helps companies manage complex projects inside the marketing department.
+										Adobe just announced that it is acquiring marketing workflow management startup Workfront for $1.5 billion. Bloomberg first reported the sale earlier today. Workfront  was founded back in 2001, making it a bit long in the tooth for a private company that has raised $375 million, according to Crunchbase. It’s worth noting that $280 million of that was secondary money raised last year. The acquisition gives Adobe more online marketing tooling to fit into its Experience Cloud. This one helps companies manage complex projects inside the marketing department. <a href="https://techcrunch.com/2020/11/09/adobe-acquires-marketing-workflow-startup-workfront-for-1-5b/">[Read More]</a>
                                     </div>
                                   </div>
                                 </div>
@@ -205,13 +204,11 @@
                                   </div>
                                   <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                                     <div class="card-body">
-										India’s antitrust watchdog has opened an investigation into Google  for allegedly abusing the dominant position of its app store to promote its payments service in the world’s second largest internet market.	In its Monday announcement (PDF) about opening an antitrust case against Google, Indian watchdog Competition Commission of India (CCI) said it is directing an in-depth investigation into the claims of whether the Android maker prominently promotes Google Pay during the setup of an Android smartphone (and whether phone vendors have a choice to avoid this); and if Play Store’s billing system is designed “to the disadvantage of both i.e. apps facilitating payment through UPI, as well as users.” The informant, who has not been identified, alleged that in addition to Google Play Store’s billing system favoring Google Pay app, in-app purchases for apps downloaded through Play Store are also mandated to support Google Pay service “if they want to be listed on the Play Store” and they are required to pay a “high commission” for that.
+										India’s antitrust watchdog has opened an investigation into Google  for allegedly abusing the dominant position of its app store to promote its payments service in the world’s second largest internet market.	In its Monday announcement (PDF) about opening an antitrust case against Google, Indian watchdog Competition Commission of India (CCI) said it is directing an in-depth investigation into the claims of whether the Android maker prominently promotes Google Pay during the setup of an Android smartphone (and whether phone vendors have a choice to avoid this); and if Play Store’s billing system is designed “to the disadvantage of both i.e. apps facilitating payment through UPI, as well as users.” The informant, who has not been identified, alleged that in addition to Google Play Store’s billing system favoring Google Pay app, in-app purchases for apps downloaded through Play Store are also mandated to support Google Pay service “if they want to be listed on the Play Store” and they are required to pay a “high commission” for that. <a href="https://techcrunch.com/2020/11/09/india-opens-antitrust-case-against-google-over-its-payments-app/">[Read More]</a>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                                
-
+                              </div>  
                         </div>
                     </div>
                 </div>                
