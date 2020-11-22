@@ -154,8 +154,8 @@
                             if((strcmp($p_word,$p_word_confirm)) == 0){
                                 $connection = mysqli_connect("localhost","root","","miniproject");        
 
-                                $query1 = "insert into user_details (name,email,phone,password) values ('$name','$u_name','$p_number','$p_word')";
-                                $query2 = "insert into login (username,password) values ('$name','$p_word')";
+                                $query1 = "insert into user_details (name,email,phone) values ('$name','$u_name','$p_number')";
+                                $query2 = "insert into login (username,password) values ('$u_name','$p_word')";
 
                                 $result = mysqli_query($connection, $query1);
                                 $result = mysqli_query($connection, $query2);
