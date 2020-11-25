@@ -43,17 +43,30 @@
                 <div class="line3"></div>
             </div>
         </nav>
-        
-        <div class="top-layer">  
-            <h2>Please provide a heading and a body for the article.</h2>          
-            <input type="text" style="margin-top:10px;" class="form-control" placeholder="Enter article title" aria-label="Username" aria-describedby="basic-addon1">
-            <textarea class="form-control rounded-0" id="output" name="name" rows="18" style="resize:none; margin-top:20px;background-color:#393e46;color:white;" placeholder="Enter the article data here"></textarea>
-            <div class="header-layer">
-                <button type="button" class="btn btn-light header-btn">Publish</button>
-                <button type="button" class="btn btn-light header-btn" onclick="document.getElementById('output').value=''">Clear</button>
+        <form action="" method="post">
+            <div class="top-layer">  
+                <h2>Please provide a heading and a body for the article.</h2>          
+                <input type="text" style="margin-top:10px;" class="form-control" placeholder="Enter article title" name="title" aria-label="Username" aria-describedby="basic-addon1">
+                <textarea class="form-control rounded-0" id="output" name="body" rows="18" style="resize:none; margin-top:20px;background-color:#393e46;color:white;" placeholder="Enter the article data here"></textarea>
+                <div class="header-layer">
+                    <button type="submit" class="btn btn-light header-btn" name="publish-btn">Publish</button>
+                    <button type="reset" class="btn btn-light header-btn" onclick="document.getElementById('output').value=''">Clear</button>
+                </div>
             </div>
-        </div>
+        </form>
 
+        <?php
+            if(isset($_POST['publish-btn'])){
+                $title = $_POST['title'];
+                $body = $_POST['body'];
+
+                $connection = mysqli_connect("localhost","root","","miniproject");
+                $query = "insert into articles (title,definition) values ('$title','$body')";
+                $result = mysqli_query($connection, $query);
+               
+                echo '<script>alert("Article Added Successfully!")</script>';
+            }
+        ?>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
