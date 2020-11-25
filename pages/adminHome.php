@@ -8,7 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">  
     <link rel="icon" type="image/png" href="../images/favicon.png"/>  
-    <link rel="stylesheet" href="../stlyes/base.css">        
+    <link rel="stylesheet" href="../stlyes/base.css">
+
+	<style>
+		@media screen and (max-width: 1110px) {
+		.row{
+			display: flex;
+			flex-direction: column;
+		}
+		.col{
+			max-width: 100% !important;
+		}
+	}		
+	</style>
+
     <title>Admin Home</title>
 </head>
 <body style="font-weight: 900; background: linear-gradient(rgba(126, 187, 202, 0.7), rgba(99, 208, 216, 0.7)),
@@ -62,8 +75,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col col-lg-6 col-mg-6 col-sm-6">
-            <h3>Articles:</h3>
+            <div class="col col-lg-6 col-mg-6 col-sm-6 articles-table">
+            <span style="display: flex; justify-content:space-between;"><h3>Articles:</h3><a href="add_articles.html"><button class="btn btn-dark">Add Article</button></a></span>
                 <table class="table" style="text-align:center">
                     <thead class="thead-dark">
                         <tr>                        
@@ -87,7 +100,8 @@
                 </table>
             </div>
         </div>
-        
+        <span style="display: flex; justify-content:center; margin-bottom: 20px;"><a href="add_articles.html"><button class="btn btn-dark">Add Article</button></a></span>
+		<hr>
     </div>
 
 
