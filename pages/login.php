@@ -177,6 +177,14 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-3"></div>
         </div>
+		<hr>
+        <div class="row" style="flex-wrap: nowrap;">
+			<div class="col-lg-5 col-md-5 col-sm-5"></div>
+			<div class="col-lg-2 col-md-2 col-sm-2">
+				<a href="admin.php"><button type="button" class="btn btn-primary">Admin Login</button></a>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-5"></div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
