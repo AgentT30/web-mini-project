@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">  
     <link rel="icon" type="image/png" href="../images/favicon.png"/>  
-    <link rel="stylesheet" href="../stlyes/base.css">        
+	<link rel="stylesheet" href="../stlyes/base.css">  
+	
+	<style>
+		@media screen and (max-width: 776px) {
+			.row{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				margin: 35px;
+				margin-top: 10vh !important;
+				align-self: center;			
+			}
+			.col-6{
+				margin: 10px;
+			}
+		}
+	</style>
+	
     <title>Login/SignUp</title>
 </head>
 <body style="font-weight: 900; background: linear-gradient(rgba(126, 187, 202, 0.5), rgba(99, 208, 216, 0.5)),
@@ -33,157 +50,166 @@
     </div>
 
     <div class="container">
-        <div class="row" style="margin-top: 45vh;">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-3"></div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
-                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Enter your login credentials:</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
+        <div class="row" style="margin-top: 25vh;">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+              <div class="card" style="width: 18rem;">
+                <img src="https://alexwebdevelop.com/wp-content/uploads/2019/08/php-login-and-authentication-the-definitive-guide.png" class="card-img-top" alt="login-img">
+                <div class="card-body" style="display:flex; justify-content:center;">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+					<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Enter your login credentials:</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							</div>
 
-                        <form action="" method="post">
-                          <div class="modal-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address:</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" name="loginemail" aria-describedby="emailHelp">                                
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password:</label>
-                                <input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
-                            </div>  
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" name="login_submit">Login</button>
-                          </div>
-                        </form>
-                        <?php
-                          // session_start();
+							<form action="" method="post">
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Email address:</label>
+									<input type="email" class="form-control" id="exampleInputEmail1" name="loginemail" aria-describedby="emailHelp">                                
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Password:</label>
+									<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
+								</div>  
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary" name="login_submit">Login</button>
+							</div>
+							</form>
+							<?php
+							// session_start();
 
-                          if(isset($_POST['login_submit'])){
-                              $u_name = $_POST['loginemail'];
-                              $p_word = $_POST['loginpass'];
+							if(isset($_POST['login_submit'])){
+								$u_name = $_POST['loginemail'];
+								$p_word = $_POST['loginpass'];
 
-                              // echo($username);        
-                              // echo($password);
+								// echo($username);        
+								// echo($password);
 
-                              $connection = mysqli_connect("localhost","root","","miniproject");        
+								$connection = mysqli_connect("localhost","root","","miniproject");        
 
-                              $query = "select * from login where username= '".$u_name."' and password='".$p_word."'";
-                              $qryobj = mysqli_query($connection, $query);
-                              
-                              while($row = mysqli_fetch_assoc($qryobj)){
-                                  // echo($row['username']);
-                                  // echo($row['password']);
+								$query = "select * from login where username= '".$u_name."' and password='".$p_word."'";
+								$qryobj = mysqli_query($connection, $query);
+								
+								while($row = mysqli_fetch_assoc($qryobj)){
+									// echo($row['username']);
+									// echo($row['password']);
 
-                                  echo '<script>alert("Login Successful")</script>'; 
-                                  // echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
-                              }
-                          }
-                        ?>
-                      </div>
-                    </div>
-                  </div>
+									echo '<script>alert("Login Successful")</script>'; 
+									// echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
+								}
+							}
+							?>
+						</div>
+						</div>
+					</div>
+					</div>
+              </div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+				<div class="card" style="width: 18rem;">
+					<img src="../images/signup.png" class="card-img-top" alt="signup-img" style="height: 95%;width: 95%;">
+					<div class="card-body" style="display:flex; justify-content:center;">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+						<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Enter your details to sign up:</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								</div>
+							
+								<form action="" method="post">
+								<div class="modal-body">
+									<div class="form-group">
+										<label for="name">Name:</label>
+										<input type="text" name="name" class="form-control" id="name">                                
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Email address:</label>
+										<input type="email" class="form-control" name="loginemail" id="exampleInputEmail1" aria-describedby="emailHelp">                                
+									</div>
+									<div class="form-group">
+										<label for="phone">Phone Number:</label>
+										<input type="number" name="phoneno" class="form-control" id="phone-number">                                
+									</div>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Password:</label>
+										<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
+									</div>
+									<div class="form-group">
+										<label for="InputPasswordConfirm">Confirm Password:</label>
+										<input type="password" class="form-control" name="loginpass_confirm" id="InputPasswordConfirm">
+									</div>
+									<div class="form-group form-check">
+										<input type="checkbox" class="form-check-input" id="exampleCheck1">
+										<label class="form-check-label" for="exampleCheck1">Send me your newsletter</label>
+										<small id="emailHelp" class="form-text text-muted">(Note: Your Email address will be used for login)</small>
+									</div> 
+								</div>
+								
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary" name="signup_submit">Sign Up</button>
+								</div>
+							</form>
+							<?php
+								// session_start();
 
-                <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Enter your details to sign up:</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                      
-                        <form action="" method="post">
-                          <div class="modal-body">
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" name="name" class="form-control" id="name">                                
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address:</label>
-                                <input type="email" class="form-control" name="loginemail" id="exampleInputEmail1" aria-describedby="emailHelp">                                
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number:</label>
-                                <input type="number" name="phoneno" class="form-control" id="phone-number">                                
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password:</label>
-                                <input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
-                            </div>
-                            <div class="form-group">
-                                <label for="InputPasswordConfirm">Confirm Password:</label>
-                                <input type="password" class="form-control" name="loginpass_confirm" id="InputPasswordConfirm">
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Send me your newsletter</label>
-                                <small id="emailHelp" class="form-text text-muted">(Note: Your Email address will be used for login)</small>
-                              </div> 
-                          </div>
-                        
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" name="signup_submit">Sign Up</button>
-                          </div>
-                      </form>
-                      <?php
-                        // session_start();
+								if(isset($_POST['signup_submit'])){
+									$name = $_POST['name'];
+									$u_name = $_POST['loginemail'];
+									$p_word = $_POST['loginpass'];
+									$p_word_confirm = $_POST['loginpass_confirm'];
+									$p_number = $_POST['phoneno'];
 
-                        if(isset($_POST['signup_submit'])){
-                            $name = $_POST['name'];
-                            $u_name = $_POST['loginemail'];
-                            $p_word = $_POST['loginpass'];
-                            $p_word_confirm = $_POST['loginpass_confirm'];
-                            $p_number = $_POST['phoneno'];
+									// echo($u_name);        
+									// echo($p_word);
+									if((strcmp($p_word,$p_word_confirm)) == 0){
+										$connection = mysqli_connect("localhost","root","","miniproject");        
 
-                            // echo($u_name);        
-                            // echo($p_word);
-                            if((strcmp($p_word,$p_word_confirm)) == 0){
-                                $connection = mysqli_connect("localhost","root","","miniproject");        
+										$query1 = "insert into user_details (name,email,phone) values ('$name','$u_name','$p_number')";
+										$query2 = "insert into login (username,password) values ('$u_name','$p_word')";
 
-                                $query1 = "insert into user_details (name,email,phone) values ('$name','$u_name','$p_number')";
-                                $query2 = "insert into login (username,password) values ('$u_name','$p_word')";
-
-                                $result = mysqli_query($connection, $query1);
-                                $result = mysqli_query($connection, $query2);
-                                
-                                echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>'; 
-                                // echo '<a href="../pages/login.html"><button class="btn btn-outline-success">Click to go back</button></a>';
-                            }
-                            else{
-                                echo '<script>alert("Passwords do not match!")</script>'; 
-                            }
-                        }
-                        // else{
-                        //   echo '<script>alert("Error!")</script>';
-                        // }
-                      ?>
-                      </div>
-                    </div>
-                  </div>
+										$result = mysqli_query($connection, $query1);
+										$result = mysqli_query($connection, $query2);
+										
+										echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>'; 
+										// echo '<a href="../pages/login.html"><button class="btn btn-outline-success">Click to go back</button></a>';
+									}
+									else{
+										echo '<script>alert("Passwords do not match!")</script>'; 
+									}
+								}
+								// else{
+								//   echo '<script>alert("Error!")</script>';
+								// }
+							?>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div> 
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-3"></div>
+            <div class="col-lg-4 col-md-4 col-sm-3 col-6">
+				<div class="card" style="width: 18rem;">
+					<img src="https://cdn3.iconfinder.com/data/icons/business-vol-21/100/Artboard_9-512.png" class="card-img-top" alt="...">
+					<div class="card-body">
+						<a href="admin.php"><button type="button" class="btn btn-primary">Admin Login</button></a>
+					</div>
+					</div>  
+				</div>
+            
         </div>
-		<hr>
-        <div class="row" style="flex-wrap: nowrap;">
-			<div class="col-lg-5 col-md-5 col-sm-5"></div>
-			<div class="col-lg-2 col-md-2 col-sm-2">
-				<a href="admin.php"><button type="button" class="btn btn-primary">Admin Login</button></a>
-			</div>
-			<div class="col-lg-5 col-md-5 col-sm-5"></div>
-        </div>
+		<hr>        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
