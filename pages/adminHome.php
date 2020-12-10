@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="../stlyes/base.css">
 
 	<style>
+        .stats{
+            display: flex;
+            justify-content: space-around;            
+        }
+
+        .border-class{
+            border: 2px solid black;
+            border-radius: 10px;  
+            width: 30%;  
+            padding: 10px;    
+        }
+
 		@media screen and (max-width: 1110px) {
 		.row{
 			display: flex;
@@ -18,10 +30,12 @@
 		}
 		.col{
 			max-width: 100% !important;
+            
 		}
-	}		
-	</style>
+	}
 
+	</style>
+    
     <title>Admin Home</title>
 </head>
 <body style="font-weight: 900; background: linear-gradient(rgba(126, 187, 202, 0.7), rgba(99, 208, 216, 0.7)),
@@ -44,6 +58,48 @@
             </div>
         </nav>                  
     </div>
+
+    <div class="container">
+        <div class="stats">
+            <div class="border-class">
+                <h2>Users Online:</h2>
+                <h3 class="users-online"></h3>
+            </div>
+            <div class="border-class">                
+                <h3 class="total-views">
+                    <?php
+                        $file="count.txt";
+                        $handle=fopen($file,'r') or die("Cannot Open File : $file");
+                        $count=fread($handle,10);
+                        fclose($handle);
+                        $count++;
+                        echo "<h2>No of visitors who visited this page : $count </h2>";
+                        $handle=fopen($file,'w') or die("Cannot Open File : $file");
+                        fwrite($handle,$count);
+                        fclose($handle);
+                    ?>                    
+                </h3>
+            </div>
+            <div class="border-class">
+                <h2>Unique Views:</h2>
+                <h3 class="unique-views"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var users = document.querySelector(".users-online");
+        var views = document.querySelector(".total-views");
+        var users_unique = document.querySelector(".unique-views");
+
+        function getRandomInteger(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
+        }
+        users.innerHTML = getRandomInteger(10,100);
+        // views.innerHTML = 58465;
+        users_unique.innerHTML = getRandomInteger(10,100);
+    </script>
+
 
     <div class="container-fluid">
         <div class="row">
