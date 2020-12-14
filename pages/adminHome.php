@@ -96,11 +96,21 @@
             return Math.floor(Math.random() * (max - min) ) + min;
         }
         users.innerHTML = getRandomInteger(10,100);
-        // views.innerHTML = 58465;
         users_unique.innerHTML = getRandomInteger(10,100);
     </script>
 
+    <hr>
+    <div class="container">
+        <div class="row" style="display:flex; justify-content: center; margin-top: 30px;">
+            <a href="add_articles.php">
+                <button class="btn btn-dark" style="height: 150px; width: 200px;">
+                    Add Article
+                </button>
+            </a>
+        </div>
+    </div>
 
+    <hr>
     <div class="container-fluid">
         <div class="row">
             <div class="col col-lg-6 col-mg-6 col-sm-6">
@@ -132,7 +142,7 @@
                 </table>
             </div>
             <div class="col col-lg-6 col-mg-6 col-sm-6 articles-table">
-            <span style="display: flex; justify-content:space-between;"><h3>Articles:</h3><a href="add_articles.html"><button class="btn btn-dark">Add Article</button></a></span>
+            <span style="display: flex; justify-content:space-between;"><h3>Articles:</h3></span>
                 <table class="table" style="text-align:center">
                     <thead class="thead-dark">
                         <tr>                        
@@ -156,7 +166,7 @@
                 </table>
             </div>
         </div>
-        <span style="display: flex; justify-content:center; margin-bottom: 20px;"><a href="add_articles.html"><button class="btn btn-dark">Add Article</button></a></span>
+        <span style="display: flex; justify-content:center; margin-bottom: 20px;"><a href="add_articles.php"><button class="btn btn-dark">Add Article</button></a></span>
 		<hr>
     </div>
 

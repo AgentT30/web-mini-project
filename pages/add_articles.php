@@ -11,7 +11,7 @@
     <style>
         body{
             min-height: 100vh;
-            background: linear-gradient(rgba(126, 187, 202, 0.5), rgba(99, 208, 216, 0.5)),
+            background: linear-gradient(rgba(126, 187, 202, 0.7), rgba(99, 208, 216, 0.9)),
             url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
             center/cover fixed no-repeat;
             position: relative;
@@ -34,7 +34,6 @@
                     <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
                     <li style="text-decoration: none; list-style-type: none"><a href="../index.html#about-us">About Us</a></li>
                     <li style="text-decoration: none; list-style-type: none"><a href="../index.html#contact-us">Contact Us</a></li>
-                    <li style="text-decoration: none; list-style-type: none"><a href="pages/login.php"><button class="login-btn">Login/Sign Up</button></a></li> 
                 </ul>
             </div>
             <div class="burger">
@@ -67,6 +66,18 @@
                 echo '<script>alert("Article Added Successfully!")</script>';
             }
         ?>
+
+        <div class="container tips">
+            <h2>Tips on writing a good article:</h2>
+            <ul style="font-size: 1.3rem;">
+                <li>Minimize your barrier to entry: Make it easy for your reader to be drawn in.</li>
+                <li>Keep your paragraphs short and your text visually appealing.</li>
+                <li>Keep it short and sweet.</li>
+                <li>While writing an article, always use proper grammar, spelling, and proper punctuations.</li>
+                <li>Avoid using the points which interest you only and not for the general public.</li>
+            </ul>
+        </div>
+    </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
