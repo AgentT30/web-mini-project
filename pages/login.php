@@ -66,7 +66,7 @@
 							</button>
 							</div>
 
-							<form action="" method="post">
+							<form action="user_profile.php" method="post">
 							<div class="modal-body">
 								<div class="form-group">
 									<label for="exampleInputEmail1">Email address:</label>
@@ -98,7 +98,7 @@
 								$qryobj = mysqli_query($connection, $query);
 								
 								while($row = mysqli_fetch_assoc($qryobj)){									
-									echo '<script>alert("Login Successful"); window.location.href="add_articles.php"</script>';
+									echo '<script>alert("Login Successful"); window.location.href="uesr_profile.php"</script>';
 									// header("Location:add_articles.php"); 
 									// echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
 								}
