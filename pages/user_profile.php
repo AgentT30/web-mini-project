@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="../stlyes/base.css">
 
 	<style>
-        
+        .heading-title{
+            text-align: center;
+        }
 
 	</style>
     
@@ -39,16 +41,20 @@
     </div>
 
     <?php
-        $user = $_POST['loginemail'];
-        // echo $user;
-        $connection = mysqli_connect("localhost","root","","miniproject");       
-        $query = "select * from user_details where email= '".$user."'";
-        // echo $query;
-        $qryobj = mysqli_query($connection, $query);
-        while($row = mysqli_fetch_assoc($qryobj)){									
-            
-        
+        if(isset($_POST['login_submit'])){
+            $user = $_POST['loginemail'];
+            // echo $user;
+            $connection = mysqli_connect("localhost","root","","miniproject");       
+            $query = "select * from user_details where email= '".$user."'";
+            // echo $query;
+            $qryobj = mysqli_query($connection, $query);
+            while($row = mysqli_fetch_assoc($qryobj)){
     ?>
+    <div class="heading-title">
+        <h1>User Profile</h1>
+        <h2>Welcome <?php echo $row['name']; ?>!</h2>
+    </div>
+    
 
     <div class="container">
         <div class="row">
@@ -59,7 +65,7 @@
                 <ul style="font-size: 1.5rem">
                     <li>Name:<?php echo $row['name']; ?></li>
                     <li>Email:<?php echo $row['email']; ?></li>
-                    <li>Phone Number: <?php echo $row['phone']; }?></li>
+                    <li>Phone Number: <?php echo $row['phone']; }}?></li>
                 </ul>
             </div>            
         </div>
