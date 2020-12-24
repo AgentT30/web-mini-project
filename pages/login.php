@@ -11,6 +11,18 @@
 	<link rel="stylesheet" href="../stlyes/base.css">  
 	
 	<style>
+		img{
+			height: 300px;
+		}
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 5px;
+		}
+
 		@media screen and (max-width: 776px) {
 			.row{
 				display: flex;
@@ -54,7 +66,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6 col-6">
               <div class="card" style="width: 18rem;">
                 <img src="https://alexwebdevelop.com/wp-content/uploads/2019/08/php-login-and-authentication-the-definitive-guide.png" class="card-img-top" alt="login-img">
-                <div class="card-body" style="display:flex; justify-content:center;">
+                <div class="card-body">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
 					<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog modal-dialog-centered">
@@ -112,8 +124,8 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 col-6">
 				<div class="card" style="width: 18rem;">
-					<img src="../images/signup.png" class="card-img-top" alt="signup-img" style="height: 95%;width: 95%;">
-					<div class="card-body" style="display:flex; justify-content:center;">
+					<img src="https://www.pngfind.com/pngs/m/333-3339770_request-form-icon-statutory-registration-hd-png-download.png" class="card-img-top" alt="signup-img">
+					<div class="card-body">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
 						<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-dialog modal-dialog-centered">
@@ -200,7 +212,7 @@
             <div class="col-lg-4 col-md-4 col-sm-3 col-6">
 				<div class="card" style="width: 18rem;">
 					<img src="https://cdn3.iconfinder.com/data/icons/business-vol-21/100/Artboard_9-512.png" class="card-img-top" alt="...">
-					<div class="card-body">
+					<div class="card-body" style="display:flex; justify-content:center;">
 						<a href="admin.php"><button type="button" class="btn btn-primary">Admin Login</button></a>
 					</div>
 					</div>  
