@@ -190,9 +190,17 @@
 										$query2 = "insert into login (username,password) values ('$u_name','$p_word')";
 
 										$result = mysqli_query($connection, $query1);
-										$result = mysqli_query($connection, $query2);
 										
-										echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>'; 
+
+										if($result==1){
+											$result2 = mysqli_query($connection, $query2);
+											echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>';
+										}
+										else{
+											echo '<script>alert("Account already exists! Please login!")</script>';
+										}
+										
+										 
 										// echo '<a href="../pages/login.html"><button class="btn btn-outline-success">Click to go back</button></a>';
 									}
 									else{
