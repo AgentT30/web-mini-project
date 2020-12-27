@@ -82,9 +82,13 @@
 
         $query = "select * from articles where title = '$search_term'";
         $result = mysqli_query($connection, $query);
+
+        echo "<div class='container'>";
+        echo "<h1>".ucwords($search_term)."</h1>";
         while($row = mysqli_fetch_assoc($result)){
             echo($row['definition']);
         }
+        echo "</div>";
     ?>
     
 

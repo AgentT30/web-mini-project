@@ -73,19 +73,94 @@
     <hr>
 
     <div class="container">
-        <div class="row" style="display:flex; justify-content: center; margin-top: 30px;">
+        <div class="row" style="display:flex; justify-content: space-around; margin-top: 30px;">
             <a href="add_articles.php">
                 <button class="btn btn-dark" style="height: 150px; width: 200px;">
                     Add Article
                 </button>
             </a>
+            <div class="modal-contariner">
+            
+                <button type="button" class="btn btn-dark" style="height: 150px; width: 200px;" data-toggle="modal" data-target="#change_pass">
+                Change Password
+                </button>
+
+                
+                <div class="modal fade" id="change_pass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="">
+                    <div class="modal-body">              
+                            <div class="form-group">
+                                <label for="name">Confirm Email:</label>
+                                <input type="email" name="email_confirm" class="form-control" id="name">                                
+                            </div>          
+                            <div class="form-group">
+                                <label for="name">Old Password:</label>
+                                <input type="password" name="old_pass" class="form-control" id="name">                                
+                            </div>
+                            <div class="form-group">
+                                <label for="name">New Password:</label>
+                                <input type="password" name="new_pass" class="form-control" id="name">                                
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Confirm New Password:</label>
+                                <input type="password" name="new_pass_confirm" class="form-control" id="name">                                
+                            </div>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="change_pass_btn">Change Password</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </form>
+            </div>
+            <?php
+                $connection = mysqli_connect("localhost","root","","miniproject");  
+                if(isset($_POST['change_pass_btn'])){
+                    $old_pass = $_POST['old_pass'];
+                    $new_pass = $_POST['new_pass'];
+                    $new_pass_confirm = $_POST['new_pass_confirm'];
+                    $user_name = $_POST['email_confirm'];
+
+                    $query = "select * from login where username= '".$user_name."'";
+                    $result = mysqli_query($connection, $query);
+                    $row = mysqli_fetch_assoc($result);
+
+                    if($row['password'] == $old_pass){
+                        if((strcmp($new_pass,$new_pass_confirm)) == 0){                            
+    
+                            $query = "UPDATE login SET password= '$new_pass' WHERE username= '$user_name'";
+    
+                            $result = mysqli_query($connection, $query);                        
+                            echo '<script>alert("Password Changed Successfully!")</script>';
+                        }
+                        else{
+                            echo '<script>alert("Passwords do not match!")</script>';
+                        }
+                    }
+                    else{
+                        echo '<script>alert("Old password is wrong!")</script>';                        
+                    }                    
+                }
+            ?>
+
+
         </div>
     </div>
 
-
+    <hr>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <script src="../scripts/app.js"></script>
+    <!-- <script src="../scripts/app.js"></script> -->
 </body>
 </html>

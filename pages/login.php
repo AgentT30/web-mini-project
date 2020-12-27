@@ -95,26 +95,33 @@
 							</div>
 							</form>
 							<?php
-							// session_start();
+							
 
-							if(isset($_POST['login_submit'])){
-								$u_name = $_POST['loginemail'];
-								$p_word = $_POST['loginpass'];
+							// if(isset($_POST['login_submit'])){
+							// 	$u_name = $_POST['loginemail'];
+							// 	$p_word = $_POST['loginpass'];
 
-								// echo($username);        
-								// echo($password);
+							// 	// echo($username);        
+							// 	// echo($password);
 
-								$connection = mysqli_connect("localhost","root","","miniproject");        
+							// 	$connection = mysqli_connect("localhost","root","","miniproject");        
 
-								$query = "select * from login where username= '".$u_name."' and password='".$p_word."'";
-								$qryobj = mysqli_query($connection, $query);
+							// 	$query = "select * from login where username= '".$u_name."' and password='".$p_word."'";
+							// 	$qryobj = mysqli_query($connection, $query);
 								
-								while($row = mysqli_fetch_assoc($qryobj)){									
-									echo '<script>alert("Login Successful"); window.location.href="uesr_profile.php"</script>';
-									// header("Location:add_articles.php"); 
-									// echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
-								}
-							}
+							// 	$row = mysqli_fetch_assoc($qryobj);
+							// 	$count = mysqli_num_rows($row);
+							// 	if ($count != 1){
+							// 		echo '<script>alert("Wrong Password")</script>';								
+							// 		header("Location:login.php");
+							// 	}	
+							// 	else{								
+							// 		echo '<script>alert("Login Successful");"</script>';
+							// 		// header("Location:user_profile.php");
+							// 		// header("Location:add_articles.php"); 
+							// 		// echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
+							// 	}
+							// }
 							?>
 						</div>
 						</div>
