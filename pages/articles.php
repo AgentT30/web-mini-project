@@ -86,8 +86,8 @@
         
         echo "<div class='container' style='margin: 0px'>";
         echo "<h4> The article you searched for is :<span class='search-term'>".ucwords($search_term)."</span></h4>";
-        echo "<h5> There are multiple articles by the search term '<span class='search-term'>".ucwords($search_term)."</span>', please click on the one which you want to read.</h5>";
-        echo "</div>";
+       
+        
 
         $count = 0;
         $answer = [];
@@ -100,8 +100,10 @@
             array_push($answer,$row['definition']);
         }
 
-        if ($count > 1){         
-            for($i=0;$i < count($answer);$i++){ 
+        if ($count > 1){  
+            echo "<h5> There are multiple articles by the search term '<span class='search-term'>".ucwords($search_term)."</span>', please click on the one which you want to read.</h5>";  
+            echo "</div>";     
+            for($i=0;$i < count($answer);$i++){               
                 echo '<div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -125,6 +127,7 @@
             }            
         }
         else{
+            echo "</div>";
             if ($answer[0] != NULL){
                 echo $answer[0];
             }
