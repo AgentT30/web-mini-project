@@ -82,24 +82,69 @@
 
         $query = "select * from articles where title like '%$search_term%'";
         $result = mysqli_query($connection, $query);
-
-        echo "<div class='container'>";
-        echo "<h5> The article you searched for is :".ucwords($search_term)."</h5>";
-        while($row = mysqli_fetch_assoc($result)){
-            echo($row['definition']);
-        }
+        
+        echo "<div class='container' style='margin: 0px'>";
+        echo "<h4> The article you searched for is :<span class='search-term'>".ucwords($search_term)."</span></h4>";
         echo "</div>";
+
+        $count = 0;
+        $answer = [];
+        $answer_title = [];
+        $numbers = ['zero','one','two','three','four','five'];
+
+        while($row = mysqli_fetch_assoc($result)){
+            $count += 1;
+            array_push($answer_title,$row['title']);
+            array_push($answer,$row['definition']);
+        }
+
+        if ($count > 1){         
+            for($i=0;$i < count($answer);$i++){ 
+                echo '<div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#'.$numbers[$i].'" aria-expanded="true" aria-controls="0">
+                            '.ucwords($answer_title[$i]).'
+                        </button>
+                    </h2>
+                    </div>';
+
+                echo '
+                    <div id="'.$numbers[$i].'" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        '.$answer[$i].'
+                    </div>
+                    </div>
+                </div>';
+                // echo '<div style="border: 1px solid black">';
+                // echo $answer[$i];
+                // echo "</div>";
+            }            
+        }
+        else{
+            echo $answer[0];
+        }
+
+        // echo "<div class='container'>";
+        // echo "<h5> The article you searched for is :".ucwords($search_term)."</h5>";
+        // while($row = mysqli_fetch_assoc($result)){
+        //     echo($row['definition']);
+        // }
+        // echo "</div>";
     ?>
     
 
     <script>
-        var page_title = document.querySelector(".title-article");
+        var page_title = document.querySelector(".search-term");
+        var article_heading
         if(page_title == null){
             document.write('<h2 class="page-no-exist">Sorry! The page does not exist. ☹️</h2>');
             document.title = "Page does not exist";
         }
         else{
             console.log(page_title.innerHTML);
+
             document.title = page_title.innerHTML;
         }
         
