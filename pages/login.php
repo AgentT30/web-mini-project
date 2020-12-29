@@ -148,23 +148,23 @@
 								<div class="modal-body">
 									<div class="form-group">
 										<label for="name">Name:</label>
-										<input type="text" name="name" class="form-control" id="name">                                
+										<input type="text" name="name" class="form-control" id="name" required>                                
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail1">Email address:</label>
-										<input type="email" class="form-control" name="loginemail" id="exampleInputEmail1" aria-describedby="emailHelp">                                
+										<input type="email" class="form-control" name="loginemail" id="exampleInputEmail1" aria-describedby="emailHelp" required>                                
 									</div>
 									<div class="form-group">
 										<label for="phone">Phone Number:</label>
-										<input type="number" name="phoneno" class="form-control" id="phone-number">                                
+										<input type="number" name="phoneno" class="form-control" id="phone-number" required>                                
 									</div>
 									<div class="form-group">
 										<label for="exampleInputPassword1">Password:</label>
-										<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
+										<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1" required>
 									</div>
 									<div class="form-group">
 										<label for="InputPasswordConfirm">Confirm Password:</label>
-										<input type="password" class="form-control" name="loginpass_confirm" id="InputPasswordConfirm">
+										<input type="password" class="form-control" name="loginpass_confirm" id="InputPasswordConfirm" required>
 									</div>
 									<div class="form-group form-check">
 										<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -175,7 +175,7 @@
 								
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="submit" class="btn btn-primary" name="signup_submit">Sign Up</button>
+									<button type="submit" class="btn btn-primary" name="signup_submit" onclick="validateform()">Sign Up</button>
 								</div>
 							</form>
 							<?php
@@ -186,33 +186,42 @@
 									$u_name = $_POST['loginemail'];
 									$p_word = $_POST['loginpass'];
 									$p_word_confirm = $_POST['loginpass_confirm'];
-									$p_number = $_POST['phoneno'];
+									$p_number = $_POST['phoneno'];									
+
+									if (!preg_match ("/^[a-zA-z]*$/", $name)) { 									
+										echo '<script>alert("Name is invalid!")</script>';
+									}
+									else if(strlen($p_number) != 10){
+										echo '<script>alert("Enter a valid phone number!")</script>';
+									}
+									else{										 
+										if((strcmp($p_word,$p_word_confirm)) == 0){
+											$connection = mysqli_connect("localhost","root","","miniproject");        
+	
+											$query1 = "insert into user_details (name,email,phone) values ('$name','$u_name','$p_number')";
+											$query2 = "insert into login (username,password) values ('$u_name','$p_word')";
+	
+											$result = mysqli_query($connection, $query1);
+											
+	
+											if($result==1){
+												$result2 = mysqli_query($connection, $query2);
+												echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>';
+											}
+											else{
+												echo '<script>alert("Account already exists! Please login!")</script>';
+											}
+											
+										}
+										else{
+											echo '<script>alert("Passwords do not match!")</script>'; 
+										}
+									}
+
 
 									// echo($u_name);        
 									// echo($p_word);
-									if((strcmp($p_word,$p_word_confirm)) == 0){
-										$connection = mysqli_connect("localhost","root","","miniproject");        
-
-										$query1 = "insert into user_details (name,email,phone) values ('$name','$u_name','$p_number')";
-										$query2 = "insert into login (username,password) values ('$u_name','$p_word')";
-
-										$result = mysqli_query($connection, $query1);
-										
-
-										if($result==1){
-											$result2 = mysqli_query($connection, $query2);
-											echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>';
-										}
-										else{
-											echo '<script>alert("Account already exists! Please login!")</script>';
-										}
-										
-										 
-										// echo '<a href="../pages/login.html"><button class="btn btn-outline-success">Click to go back</button></a>';
-									}
-									else{
-										echo '<script>alert("Passwords do not match!")</script>'; 
-									}
+									
 								}
 								// else{
 								//   echo '<script>alert("Error!")</script>';

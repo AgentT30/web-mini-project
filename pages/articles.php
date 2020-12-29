@@ -22,7 +22,7 @@
 
         .page-no-exist{
             text-align: center;
-            margin-top: 25rem;
+            margin-top: 15rem;
         }    
         .program-example{
             padding: 20px;
@@ -80,11 +80,11 @@
         // echo($search_term);
         $connection = mysqli_connect("localhost","root","","miniproject");
 
-        $query = "select * from articles where title = '$search_term'";
+        $query = "select * from articles where title like '%$search_term%'";
         $result = mysqli_query($connection, $query);
 
         echo "<div class='container'>";
-        echo "<h1>".ucwords($search_term)."</h1>";
+        echo "<h5> The article you searched for is :".ucwords($search_term)."</h5>";
         while($row = mysqli_fetch_assoc($result)){
             echo($row['definition']);
         }
