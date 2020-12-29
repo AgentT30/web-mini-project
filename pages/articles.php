@@ -76,6 +76,7 @@
     </div>
     
     <?php
+        error_reporting(0);
         $search_term = $_POST['search'];
         // echo($search_term);
         $connection = mysqli_connect("localhost","root","","miniproject");
@@ -85,6 +86,7 @@
         
         echo "<div class='container' style='margin: 0px'>";
         echo "<h4> The article you searched for is :<span class='search-term'>".ucwords($search_term)."</span></h4>";
+        echo "<h5> There are multiple articles by the search term '<span class='search-term'>".ucwords($search_term)."</span>', please click on the one which you want to read.</h5>";
         echo "</div>";
 
         $count = 0;
@@ -123,7 +125,13 @@
             }            
         }
         else{
-            echo $answer[0];
+            if ($answer[0] != NULL){
+                echo $answer[0];
+            }
+            else{
+                echo "<h2 class='page-no-exist'>Sorry! The page does not exist. ☹️</h2>";
+            }
+            
         }
 
         // echo "<div class='container'>";
@@ -137,7 +145,7 @@
 
     <script>
         var page_title = document.querySelector(".search-term");
-        var article_heading
+        
         if(page_title == null){
             document.write('<h2 class="page-no-exist">Sorry! The page does not exist. ☹️</h2>');
             document.title = "Page does not exist";
