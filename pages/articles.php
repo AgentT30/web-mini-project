@@ -129,6 +129,7 @@
         else{
             echo "</div>";
             if ($answer[0] != NULL){
+                echo "<h1 class='article_title'>".$answer_title[0]."</h1>";
                 echo $answer[0];
             }
             else{
@@ -148,14 +149,21 @@
 
     <script>
         var page_title = document.querySelector(".search-term");
+        var article_title_from_db = document.querySelector(".title-article");
+        var article_title_on_window = document.querySelector(".article_title");        
+
+        if (article_title_from_db != null){
+            console.log(article_title_on_window);
+            article_title_on_window.style.display = "none";
+        }        
         
         if(page_title == null){
-            document.write('<h2 class="page-no-exist">Sorry! The page does not exist. ☹️</h2>');
+            // document.write('<h2 class="page-no-exist">Sorry! The page does not exist. ☹️</h2>');
             document.title = "Page does not exist";
+
         }
         else{
             console.log(page_title.innerHTML);
-
             document.title = page_title.innerHTML;
         }
         
