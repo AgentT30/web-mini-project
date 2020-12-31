@@ -87,7 +87,10 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Password:</label>
 									<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
-								</div>  
+								</div> 
+								<div class="form-group">
+									<a href="forgot_password.php">Forgot Passowrd</a>
+								</div>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -186,13 +189,21 @@
 									$u_name = $_POST['loginemail'];
 									$p_word = $_POST['loginpass'];
 									$p_word_confirm = $_POST['loginpass_confirm'];
-									$p_number = $_POST['phoneno'];									
+									$p_number = $_POST['phoneno'];	
+									
+									function endsWith($haystack, $needle) {
+										return substr_compare($haystack, $needle, -strlen($needle)) === 0;
+									}
+
 
 									if (!preg_match ("/^[a-zA-z]*$/", $name)) { 									
 										echo '<script>alert("Name is invalid!")</script>';
 									}
 									else if(strlen($p_number) != 10){
 										echo '<script>alert("Enter a valid phone number!")</script>';
+									}
+									else if(endsWith($u_name,".com") != true){
+										echo '<script>alert("Enter a valid email ID!")</script>';
 									}
 									else{										 
 										if((strcmp($p_word,$p_word_confirm)) == 0){
