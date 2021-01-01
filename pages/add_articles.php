@@ -28,12 +28,12 @@
 <body style="font-weight: 900;">    
     <div id="fullpage">        
         <nav class="top-nav">
-            <a href="../index.html"><h1 class="main-heading">NerdsforNerds</h1></a>
+            <a href="../index.php"><h1 class="main-heading">NerdsforNerds</h1></a>
             <div class="nav-items">
                 <ul class="nav-links" style="text-decoration: none; list-style-type: none">
-                    <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
-                    <li style="text-decoration: none; list-style-type: none"><a href="../index.html#about-us">About Us</a></li>
-                    <li style="text-decoration: none; list-style-type: none"><a href="../index.html#contact-us">Contact Us</a></li>
+                    <li style="text-decoration: none; list-style-type: none"><a href="../index.php">Home</a></li>
+                    <li style="text-decoration: none; list-style-type: none"><a href="../index.php#about-us">About Us</a></li>
+                    <li style="text-decoration: none; list-style-type: none"><a href="../index.php#contact-us">Contact Us</a></li>
                 </ul>
             </div>
             <div class="burger">
@@ -48,22 +48,23 @@
                 <input type="text" style="margin-top:10px;" class="form-control" placeholder="Enter article title" name="title" aria-label="Username" aria-describedby="basic-addon1">
                 <textarea class="form-control rounded-0" id="output" name="body" rows="18" style="resize:none; margin-top:20px;background-color:#393e46;color:white;" placeholder="Enter the article data here"></textarea>
                 <div class="header-layer">
-                    <button type="submit" class="btn btn-light header-btn" name="publish-btn">Publish</button>
+                    <button type="submit" class="btn btn-light header-btn" name="publish-btn">Submit Article</button>
                     <button type="reset" class="btn btn-light header-btn" onclick="document.getElementById('output').value=''">Clear</button>
                 </div>
             </div>
         </form>
 
         <?php
+            $username = $_GET['username'];
             if(isset($_POST['publish-btn'])){
                 $title = $_POST['title'];
                 $body = $_POST['body'];
 
                 $connection = mysqli_connect("localhost","root","","miniproject");
-                $query = "insert into articles (title,definition) values ('$title','$body')";
+                $query = "insert into articles_for_review (title,definition,username) values ('$title','$body','$username')";
                 $result = mysqli_query($connection, $query);
                
-                echo '<script>alert("Article Added Successfully!")</script>';
+                echo '<script>alert("Article submitted successfully for review!")</script>';
             }
         ?>
 

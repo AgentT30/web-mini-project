@@ -45,12 +45,12 @@
             center/cover fixed no-repeat; min-height: 100vh;">    
     <div id="header">        
         <nav class="top-nav">
-            <a href="../index.html"><h1 class="main-heading">NerdsforNerds</h1></a>
+            <a href="../index.php"><h1 class="main-heading">NerdsforNerds</h1></a>
             <div class="nav-items">
                 <ul class="nav-links" style="text-decoration: none; list-style-type: none">
-                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
-                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html#about-us">About Us</a></li>
-                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html#contact-us">Contact Us</a></li>                   
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.php">Home</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.php#about-us">About Us</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.php#contact-us">Contact Us</a></li>                   
                 </ul>
             </div>
             <div class="burger">
@@ -122,7 +122,7 @@
 							// 		echo '<script>alert("Login Successful");"</script>';
 							// 		// header("Location:user_profile.php");
 							// 		// header("Location:add_articles.php"); 
-							// 		// echo('<a href="../index.html"><button class="btn btn-outline-secondary">Click to go back</button></a>');
+							// 		// echo('<a href="../index.php"><button class="btn btn-outline-secondary">Click to go back</button></a>');
 							// 	}
 							// }
 							?>

@@ -58,12 +58,12 @@
 <body style="font-weight: 900;">     
     <div class="div-nav ">
         <nav class="top-nav">
-            <a href="../index.html"><h1 class="main-heading">NerdsforNerds</h1></a>
+            <a href="../index.php"><h1 class="main-heading">NerdsforNerds</h1></a>
             <div class="nav-items">
                 <ul class="nav-links" style="text-decoration: none; list-style-type: none">
-                    <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
-                    <li style="text-decoration: none; list-style-type: none"><a href="../index.html#about-us">About Us</a></li>
-                    <li style="text-decoration: none; list-style-type: none"><a href="../index.html#contact-us">Contact Us</a></li>
+                    <li style="text-decoration: none; list-style-type: none"><a href="../index.php">Home</a></li>
+                    <li style="text-decoration: none; list-style-type: none"><a href="../index.php#about-us">About Us</a></li>
+                    <li style="text-decoration: none; list-style-type: none"><a href="../index.php#contact-us">Contact Us</a></li>
                     <li style="text-decoration: none; list-style-type: none"><a href="../pages/login.php"><button class="login-btn">Login/Sign Up</button></a></li> 
                 </ul>
             </div>

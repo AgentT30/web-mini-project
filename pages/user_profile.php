@@ -24,12 +24,12 @@
             center/cover fixed no-repeat; min-height: 100vh;">    
     <div id="header">        
         <nav class="top-nav">
-            <a href="../index.html"><h1 class="main-heading">NerdsforNerds</h1></a>
+            <a href="../index.php"><h1 class="main-heading">NerdsforNerds</h1></a>
             <div class="nav-items">
                 <ul class="nav-links" style="text-decoration: none; list-style-type: none">
-                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html">Home</a></li>
-                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html#about-us">About Us</a></li>
-                  <li style="text-decoration: none; list-style-type: none"><a href="../index.html#contact-us">Contact Us</a></li>                  
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.php">Home</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.php#about-us">About Us</a></li>
+                  <li style="text-decoration: none; list-style-type: none"><a href="../index.php#contact-us">Contact Us</a></li>                  
                 </ul>
             </div>
             <div class="burger">
@@ -87,7 +87,7 @@
 
     <div class="container">
         <div class="row" style="display:flex; justify-content: space-around; margin-top: 30px;">
-            <a href="add_articles.php">
+            <a href="add_articles.php?username=<?php echo $row['name'];?>">
                 <button class="btn btn-dark" style="height: 150px; width: 200px;">
                     Add Article
                 </button>
