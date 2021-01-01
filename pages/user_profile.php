@@ -64,7 +64,10 @@
     ?>
     <div class="heading-title">
         <h1>User Profile</h1>
-        <h2>Welcome! <?php echo $user; ?></h2>
+        <h2>Welcome <?php $query = "select * from user_details where email= '".$user."'"; 
+                $result = mysqli_query($connection, $query);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['name']; ?>!</h2>
     </div>
     
 
