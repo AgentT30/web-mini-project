@@ -112,6 +112,41 @@
     </div>
 
     <hr>
+    <div class="container">
+        <div class="row">
+            <table class="table" style="text-align:center">
+                <thead class="thead-dark">
+                    <tr>                        
+                        <th scope="col">Author Name</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Body</th>                        
+                        <th scope="col" colspan="3">Action</th>            
+                                               
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $connection = mysqli_connect("localhost","root","","miniproject");        
+                        $query = "select * from articles_for_review";
+                        $result = mysqli_query($connection, $query);
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '<tr>';
+                            echo '<td>'.$row['username'].'</td>';
+                            echo '<td>'.$row['title'].'</td>';
+                            $article = substr($row['definition'],0,50);
+                            echo '<td>'.$article.'</td>'; 
+                            echo '<td><a href="article_review.php?title='.$row['title'].'"><button class="btn btn-dark">Read full article</button></a></td>';
+                            echo '<td><a href="publish_article.php?title='.$row['title'].'&body='.$row['definition'].'"><button class="btn btn-dark">Publish this article</button></a></td>';
+                            echo '<td><a href="delete_submitted_article.php?title='.$row['title'].'"><button class="btn btn-dark">Delete this article</button></a></td>';
+                            echo '</tr>';
+                        }
+                    ?>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col col-lg-6 col-mg-6 col-sm-6">

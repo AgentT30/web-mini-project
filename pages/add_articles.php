@@ -55,16 +55,30 @@
         </form>
 
         <?php
+            error_reporting(0);
             $username = $_GET['username'];
+            if($username == NULL){
+                $username = "admin";
+            }
             if(isset($_POST['publish-btn'])){
                 $title = $_POST['title'];
                 $body = $_POST['body'];
 
                 $connection = mysqli_connect("localhost","root","","miniproject");
-                $query = "insert into articles_for_review (title,definition,username) values ('$title','$body','$username')";
-                $result = mysqli_query($connection, $query);
+
+                if($username == "admin"){
+                    $query = "insert into articles (title,definition) values ('$title','$body')";
+                    $result = mysqli_query($connection, $query);
+
+                    echo '<script>alert("Article Published Successfully")</script>';
+                }
+                else{
+                    $query = "insert into articles_for_review (title,definition,username) values ('$title','$body','$username')";
+                    $result = mysqli_query($connection, $query);
                
-                echo '<script>alert("Article submitted successfully for review!")</script>';
+                    echo '<script>alert("Article submitted successfully for review!")</script>';
+                }
+                
             }
         ?>
 
