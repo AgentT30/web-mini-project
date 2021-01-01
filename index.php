@@ -118,14 +118,7 @@
                           $numbers = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
                       
                           foreach ($json as $field => $value) {
-                              $count += 1;
-                              // echo("<b>".$value['heading']."</b>");
-                              // echo "<br>";
-                              // echo($value['body']);
-                              // echo "<br>";        
-                              // echo($value['link']);
-                              // echo "<br>";
-                              // echo "<br>";
+                              $count += 1;                              
                       
                               echo '<div class="accordion" id="accordionExample">
                               <div class="card">

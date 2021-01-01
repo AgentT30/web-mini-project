@@ -41,18 +41,30 @@
     </div>
 
     <?php
+        error_reporting(0);
         if(isset($_POST['login_submit'])){
             $user = $_POST['loginemail'];
+            $password = $_POST['loginpass'];
             // echo $user;
             $connection = mysqli_connect("localhost","root","","miniproject");       
-            $query = "select * from user_details where email= '".$user."'";
-            // echo $query;
-            $qryobj = mysqli_query($connection, $query);
-            while($row = mysqli_fetch_assoc($qryobj)){
+            $query = "select * from login where username= '".$user."' and password='".$password."'";
+            
+            $result = mysqli_query($connection, $query);
+            $row = mysqli_fetch_assoc($result);
+            if($row['username'] != NULL){
+                echo "<script>alert('Login Successful')</script>";
+            }
+            else{                
+                echo "<script>if(confirm('Invalid Credentials!')){
+                    window.location.href = 'login.php';
+                }                    
+                </script>";                
+            }
+        }
     ?>
     <div class="heading-title">
         <h1>User Profile</h1>
-        <h2>Welcome <?php echo $row['name']; ?>!</h2>
+        <h2>Welcome! <?php echo $user; ?></h2>
     </div>
     
 
@@ -63,9 +75,7 @@
             </div>
             <div class="col col-lg-5 col-md-4 col-sm-4" style="display:flex; justify-content: space-evenly; flex-direction: column; ">
                 <ul style="font-size: 1.5rem">
-                    <li>Name:<?php echo $row['name']; ?></li>
-                    <li>Email:<?php echo $row['email']; ?></li>
-                    <li>Phone Number: <?php echo $row['phone']; }}?></li>
+                    
                 </ul>
             </div>            
         </div>

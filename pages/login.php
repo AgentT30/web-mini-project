@@ -89,7 +89,7 @@
 									<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
 								</div> 
 								<div class="form-group">
-									<a href="forgot_password.php">Forgot Passowrd</a>
+									<a href="forgot_password.php"><button type="button" class="btn btn-outline-secondary">Forgot Passowrd</a></button>
 								</div>
 							</div>
 							<div class="modal-footer">
