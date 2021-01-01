@@ -106,109 +106,49 @@
 							}
                             </script>                              
                         </div>
-                        <div class="col-lg-9 col-md-9 col-sm-9">							                   
-                            <div id="accordion">
-                                <div class="card">
+                        <div class="col-lg-9 col-md-9 col-sm-9">
+                            
+                        <?php
+                          $run_script = shell_exec("python news_scrapper.py");
+
+
+                          $str = file_get_contents('news.json');
+                          $json = json_decode($str, true);
+                          $count = 0;
+                          $numbers = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+                      
+                          foreach ($json as $field => $value) {
+                              $count += 1;
+                              // echo("<b>".$value['heading']."</b>");
+                              // echo "<br>";
+                              // echo($value['body']);
+                              // echo "<br>";        
+                              // echo($value['link']);
+                              // echo "<br>";
+                              // echo "<br>";
+                      
+                              echo '<div class="accordion" id="accordionExample">
+                              <div class="card">
                                   <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-										<img src="images/GitHub-Mark-120px-plus.png" alt="" style="width: 3%; height: 3%;">
-                                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        GitHub Takes Aim at Open Source Software Vulnerabilities
+                                  <h2 class="mb-0">
+                                      <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#'.$numbers[$count].'" aria-expanded="false" aria-controls="0">
+                                      '.$value["heading"].'
                                       </button>
-                                    </h5>
-                                  </div>                              
-                                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-										Open source software has the potential to be very secure. Unlike proprietary code that can only be accessed directly by its own developers, anyone can vet open source projects to spot flaws and bugs. In practice, though, being open source is no panacea. Now, code repository GitHub is rolling out new tools for its GitHub Advanced Security suite that will make it easier to root out vulnerabilities in the open source projects managed on its platform. Open source code present a few security challenges. In practice there aren't always enough people with the right expertise looking at it. And open source projects are generally ad hoc; they don't necessarily have a clear process in place for people to submit vulnerabilities, or the resources available for someone to patch them. Even if you surmount those hurdles, you may not know who's actually using your open source code and needs a patch. <a href="https://www.wired.com/story/github-advanced-security-open-source/">[Read More]</a> 
-                                    </div>
+                                  </h2>
+                                  </div>';
+                      
+                              echo '
+                                  <div id="'.$numbers[$count].'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                      '.$value["body"].'... <a href='.$value["link"].'><button type="button" class="btn btn-outline-secondary">Read More</a></button>
                                   </div>
-                                </div>
-                                
-
-                                <div class="card">
-                                  <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-										<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png" alt="" style="width: 3%; height: 3%;">
-                                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                         Python Is More Popular Than Ever
-                                      </button>
-                                    </h5>
                                   </div>
-                                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="card-body">
-										Python is one of the world’s most popular programming languages. In fact, it’s more so than ever. Python climbed from third place to tie for second in the latest ranking of programming language popularity published by the analyst firm RedMonk. It’s the first time that a language other than JavaScript, which remains number one in the firm’s ratings, or Java, the other runner-up, has entered the top two since RedMonk started compiling its rankings in 2012. <a href="https://www.wired.com/story/python-language-more-popular-than-ever/">[Read More]</a>
-                                    </div>
-                                  </div>
-                                </div>
-
-
-                                <div class="card">
-                                  <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <img src="https://e7.pngegg.com/pngimages/567/356/png-clipart-uber-logo-decal-lyft-business-text-people.png" alt="" style="width: 3%; height: 3%;">
-                                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Uber will now let users book rides 30 days in advance and pick a favorite driver
-                                      </button>
-                                    </h5>
-                                  </div>
-                                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-										Uber  is rolling out a new feature this week that will let users reserve rides up to 30 days in advance and pick their favorite driver for the trip as the ride-hailing company seeks out new ways to attract customers during the COVID-19 pandemic. The new option called Uber Reserve, which will begin to show up on the app in the next week, is designed for users who want to book a ride at least two hours in advance. Uber said it will keep its current “schedule a ride” option for those trips that fall under that two hours in advance timeline. <a href="https://techcrunch.com/2020/11/10/uber-will-now-let-users-book-rides-30-days-in-advance-and-pick-a-favorite-driver/">[Read More]</a>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-
-                                <div class="card">
-                                  <div class="card-header" id="headingFour">
-                                    <h5 class="mb-0">
-                                        <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/062018/untitled-1_34.png?bE3VbPBrcNicdfLek1E1mh0XV.eqXWM8&itok=o752uhpz" alt="" style="width: 3%; height: 3%;">
-                                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Qualcomm Ventures invests in four 5G startups
-                                      </button>
-                                    </h5>
-                                  </div>
-                                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Qualcomm Ventures, Qualcomm’s  investment arm, today announced four new strategic investments in 5G-related startups. These companies are private mobile network specialist Celona, mobile network automation platform Cellwize, the edge computing platform Azion and Pensando, another edge computing platform that combines its software stack with custom hardware.The overall goal here is obviously to help jumpstart 5G use cases in the enterprise and — by extension — for consumers by investing in a wide range of companies that can build the necessary infrastructure to enable these. <a href="https://techcrunch.com/2020/11/10/qualcomm-ventures-invests-in-four-5g-startups/">[Read More]</a>
-                                    </div>
-                                  </div>
-                                </div>
-
-								
-                                <div class="card">
-                                  <div class="card-header" id="headingFive">
-                                    <h5 class="mb-0">
-										<img src="https://www.famouslogos.us/images/adobe-logo.jpg" alt="" style="width: 3%; height: 3%;">
-                                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                        Adobe acquires marketing workflow startup Workfront for $1.5B
-                                      </button>
-                                    </h5>
-                                  </div>
-                                  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                                    <div class="card-body">
-										Adobe just announced that it is acquiring marketing workflow management startup Workfront for $1.5 billion. Bloomberg first reported the sale earlier today. Workfront  was founded back in 2001, making it a bit long in the tooth for a private company that has raised $375 million, according to Crunchbase. It’s worth noting that $280 million of that was secondary money raised last year. The acquisition gives Adobe more online marketing tooling to fit into its Experience Cloud. This one helps companies manage complex projects inside the marketing department. <a href="https://techcrunch.com/2020/11/09/adobe-acquires-marketing-workflow-startup-workfront-for-1-5b/">[Read More]</a>
-                                    </div>
-                                  </div>
-                                </div>
-
-
-                                <div class="card last-article">
-                                  <div class="card-header" id="headingSix">
-                                    <h5 class="mb-0">
-										<img src="https://blog.hubspot.com/hubfs/image8-2.jpg" alt="" style="width: 3%; height: 3%;">
-                                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-										 India opens antitrust case against Google over its payments app
-                                      </button>
-                                    </h5>
-                                  </div>
-                                  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                                    <div class="card-body">
-										India’s antitrust watchdog has opened an investigation into Google  for allegedly abusing the dominant position of its app store to promote its payments service in the world’s second largest internet market.	In its Monday announcement (PDF) about opening an antitrust case against Google, Indian watchdog Competition Commission of India (CCI) said it is directing an in-depth investigation into the claims of whether the Android maker prominently promotes Google Pay during the setup of an Android smartphone (and whether phone vendors have a choice to avoid this); and if Play Store’s billing system is designed “to the disadvantage of both i.e. apps facilitating payment through UPI, as well as users.” The informant, who has not been identified, alleged that in addition to Google Play Store’s billing system favoring Google Pay app, in-app purchases for apps downloaded through Play Store are also mandated to support Google Pay service “if they want to be listed on the Play Store” and they are required to pay a “high commission” for that. <a href="https://techcrunch.com/2020/11/09/india-opens-antitrust-case-against-google-over-its-payments-app/">[Read More]</a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>  
+                              </div>';
+                              if($count == 8){
+                                  break;
+                              }
+                          }
+                          ?>
                         </div>
                     </div>
                 </div>                
