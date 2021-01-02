@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="../stlyes/password_strength.css"> 
 
 	<script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script> 
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
 	<style>
 		img{
@@ -227,13 +228,13 @@
 
 
 									if (!preg_match ("/^[a-zA-z]*$/", $name)) { 									
-										echo '<script>alert("Name is invalid!")</script>';
+										echo '<script>swal("Name is invalid!","")</script>';
 									}
 									else if(strlen($p_number) != 10){
-										echo '<script>alert("Enter a valid phone number!")</script>';
+										echo '<script>swal("Enter a valid phone number!","")</script>';
 									}
 									else if (!filter_var($u_name, FILTER_VALIDATE_EMAIL)) {
-										echo '<script>alert("Enter a valid email ID!")</script>';
+										echo '<script>swal("Enter a valid email ID!","")</script>';
 									}
 									else{										 
 										if((strcmp($p_word,$p_word_confirm)) == 0){
@@ -247,15 +248,15 @@
 	
 											if($result==1){
 												$result2 = mysqli_query($connection, $query2);
-												echo '<script>alert("Signup Successful, Please proceed to login with your email and password")</script>';
+												echo '<script>swal("Signup Successful, Please proceed to login with your email and password","")</script>';
 											}
 											else{
-												echo '<script>alert("Account already exists! Please login!")</script>';
+												echo '<script>swal("Account already exists! Please login!","")</script>';
 											}
 											
 										}
 										else{
-											echo '<script>alert("Passwords do not match!")</script>'; 
+											echo '<script>swal("Passwords do not match!","")</script>'; 
 										}
 									}
 
@@ -294,10 +295,9 @@
 		let number = document.querySelector(".one-number i");
 		let special_char = document.querySelector(".one-special-char i");
 		let eight_char = document.querySelector(".eight-character i");
-
-		function checkStrength(password){
+		
+		function checkStrength(password){		
 			let strength = 0;
-			
 			if(password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)){
 				strength += 1;				
 				lower_upper_case.classList.add('fa-check');
