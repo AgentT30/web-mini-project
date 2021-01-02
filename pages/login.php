@@ -166,15 +166,17 @@
 									</div>
 									<div class="form-group">
 										<label for="exampleInputPassword1">Password:</label>
-										<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1" required>
+										<input type="password" class="form-control" name="loginpass" id="InputPasswordSignUp" required>
 									</div>
 									<div class="form-group">
 										<label for="InputPasswordConfirm">Confirm Password:</label>
 										<input type="password" class="form-control" name="loginpass_confirm" id="InputPasswordConfirm" required>
-										<div class="progress">
+										<small id="pass_strength_title" class="form-text text-muted" style="margin-top:10px">Password Strength</small>
+										<div class="progress">											
 											<div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 										</div>
 									</div>
+									<small id="pass_strength_tips" class="form-text text-muted">A secure password must have:</small>
 									<ul class="list-unstyled">
 										<li>
 											<span class="low-upper-case">
@@ -285,7 +287,7 @@
 		<hr>        
     </div>
 	<script>
-		let password = document.querySelector("#InputPasswordConfirm");
+		let password = document.querySelector("#InputPasswordSignUp");
 		let password_strength = document.getElementById("password-strength");
 
 		let lower_upper_case = document.querySelector(".low-upper-case i");
