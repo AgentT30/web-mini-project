@@ -114,6 +114,7 @@
     <hr>
     <div class="container">
         <div class="row">
+            <h3>Articles to be reviewed:</h3>
             <table class="table" style="text-align:center">
                 <thead class="thead-dark">
                     <tr>                        
@@ -146,6 +147,7 @@
         </div>
     </div>
 
+    <hr>
 
     <div class="container-fluid">
         <div class="row">

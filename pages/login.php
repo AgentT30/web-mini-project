@@ -202,7 +202,7 @@
 									else if(strlen($p_number) != 10){
 										echo '<script>alert("Enter a valid phone number!")</script>';
 									}
-									else if(endsWith($u_name,".com") != true){
+									else if (!filter_var($u_name, FILTER_VALIDATE_EMAIL)) {
 										echo '<script>alert("Enter a valid email ID!")</script>';
 									}
 									else{										 
