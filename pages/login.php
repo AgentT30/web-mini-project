@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">  
     <link rel="icon" type="image/png" href="../images/favicon.png"/>  
 	<link rel="stylesheet" href="../stlyes/base.css">  
+	<link rel="stylesheet" href="../stlyes/password_strength.css"> 
+
+	<script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script> 
 	
 	<style>
 		img{
@@ -86,7 +89,7 @@
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">Password:</label>
-									<input type="password" class="form-control" name="loginpass" id="exampleInputPassword1">
+									<input type="password" class="form-control" name="loginpass" id="InputPassword1">
 								</div> 
 								<div class="form-group">
 									<a href="forgot_password.php"><button type="button" class="btn btn-outline-secondary">Forgot Passowrd</a></button>
@@ -168,12 +171,37 @@
 									<div class="form-group">
 										<label for="InputPasswordConfirm">Confirm Password:</label>
 										<input type="password" class="form-control" name="loginpass_confirm" id="InputPasswordConfirm" required>
+										<div class="progress">
+											<div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+										</div>
 									</div>
-									<div class="form-group form-check">
-										<input type="checkbox" class="form-check-input" id="exampleCheck1">
-										<label class="form-check-label" for="exampleCheck1">Send me your newsletter</label>
-										<small id="emailHelp" class="form-text text-muted">(Note: Your Email address will be used for login)</small>
-									</div> 
+									<ul class="list-unstyled">
+										<li>
+											<span class="low-upper-case">
+												<i class="fas fa-circle" aria-hidden="true"></i>
+												Lowercase &amp; Uppercase
+											</span>
+										</li>
+										<li>
+											<span class="one-number">
+												<i class="fas fa-circle" aria-hidden="true"></i>
+												Number (0-9)
+											</span>
+										</li>
+										<li>
+											<span class="one-special-char">
+												<i class="fas fa-circle" aria-hidden="true"></i>
+												Special Character (!@#$%^&*)
+											</span>
+										</li>
+										<li>
+											<span class="eight-character">
+												<i class="fas fa-circle" aria-hidden="true"></i>
+												At least 8 character
+											</span>
+										</li>
+									</ul>
+
 								</div>
 								
 								<div class="modal-footer">
@@ -256,10 +284,92 @@
         </div>
 		<hr>        
     </div>
+	<script>
+		let password = document.querySelector("#InputPasswordConfirm");
+		let password_strength = document.getElementById("password-strength");
+
+		let lower_upper_case = document.querySelector(".low-upper-case i");
+		let number = document.querySelector(".one-number i");
+		let special_char = document.querySelector(".one-special-char i");
+		let eight_char = document.querySelector(".eight-character i");
+
+		function checkStrength(password){
+			let strength = 0;
+			
+			if(password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)){
+				strength += 1;				
+				lower_upper_case.classList.add('fa-check');
+				lower_upper_case.classList.remove('fa-circle');
+				
+			}
+			else{
+				lower_upper_case.classList.add('fa-circle');
+				lower_upper_case.classList.remove('fa-check');
+			}
+
+			if(password.match(/[0-9]/)){
+				strength += 1;
+				number.classList.add('fa-check');
+				number.classList.remove('fa-circle');
+			}
+			else{
+				number.classList.remove('fa-check');
+				number.classList.add('fa-circle');
+			}
+
+			if(password.match(/[!,@,#,$,%,^,&,*,_,~]/)){
+				strength += 1;
+				special_char.classList.add('fa-check');
+				special_char.classList.remove('fa-circle');
+			}
+			else{
+				special_char.classList.remove('fa-check');
+				special_char.classList.add('fa-circle');
+			}
+
+			if(password.length > 7){
+				strength += 1;
+				eight_char.classList.add('fa-check');
+				eight_char.classList.remove('fa-circle');
+			}
+			else{
+				eight_char.classList.remove('fa-check');
+				eight_char.classList.add('fa-circle');
+			}
+
+			if(strength == 0){
+				password_strength.style = "width: 0%";
+			}
+			else if (strength == 2){
+				password_strength.classList.remove("progress-bar-warning");
+				password_strength.classList.remove("progress-bar-success");
+				password_strength.classList.add("progress-bar-danger");
+				password_strength.style = "width: 10%";
+			}
+			else if (strength == 3){
+				password_strength.classList.remove("progress-bar-success");
+				password_strength.classList.remove("progress-bar-danger");
+				password_strength.classList.add("progress-bar-warning");
+				password_strength.style = "width: 60%";
+			}
+			else if (strength == 4){
+				password_strength.classList.remove("progress-bar-warning");
+				password_strength.classList.remove("progress-bar-danger");
+				password_strength.classList.add("progress-bar-success");
+				password_strength.style = "width: 100%";
+			}
+		}
+
+		password.addEventListener('keyup', function(){
+			let pass = password.value;
+			console.log(pass);
+			checkStrength(pass);
+		})
+	</script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+	
     <script src="../scripts/app.js"></script>
 </body>
 </html>
