@@ -57,6 +57,9 @@
             else{                
                 echo "<script>if(confirm('Invalid Credentials!')){
                     window.location.href = 'login.php';
+                }
+                else{
+                    window.location.href = 'login.php';
                 }                    
                 </script>";                
             }
