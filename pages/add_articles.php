@@ -69,7 +69,6 @@
                 if($username == "admin"){
                     $query = "insert into articles (title,definition) values ('$title','$body')";
                     $result = mysqli_query($connection, $query);
-
                     echo '<script>alert("Article Published Successfully")</script>';
                 }
                 else{
